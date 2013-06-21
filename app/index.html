@@ -25,7 +25,30 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view></div>
+    <div class="container" >
+      <div class="navbar">
+        <div class="navbar-inner">
+          <a class="brand" href="#/">AngularJs <span app-version>VERSION</span></a>
+          <ul class="nav">
+
+            <li>
+              <a href="#/view1">Todo List Example</a>
+            </li>
+            <li>
+              <a href="#/view2">Contact List Example</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div ng-view>
+        <div class="alert alert-block">
+          Application is loading ... Please wait ... (You have to open codepen in editor to watch this <a href="http://codepen.io/thegeek/pen/iAzfr" target="_blank"> here </a>)
+        </div>
+      </div>
+
+    </div>
+
 
     <script src="components/angular/angular.js"></script>
     <script src="components/angular-resource/angular-resource.js"></script>
@@ -35,6 +58,13 @@
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/todolist.js"></script>
+    <script src="scripts/controllers/contactlist.js"></script>
+    <script src="scripts/directives/appVersion.js"></script>
+    <script src="scripts/directives/onEnter.js"></script>
+    <script src="scripts/filters/interpolate.js"></script>
+    <script src="scripts/filters/sieve.js"></script>
+    <script src="scripts/factories/contactFactory.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

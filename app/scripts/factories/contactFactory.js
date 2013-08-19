@@ -38,6 +38,4 @@ angular.module('AngularJsFunWithUIApp')
     return contactTemplate;
   };
 })
-.factory('version',function(){
-  return "0.0.1";
-});
+.value('version', 'v.  0.3-Angular-UI');

@@ -1,23 +1,23 @@
 'use strict';
 
 
-angular.module('AngularJsFunWithUIApp',[])
+angular.module('AngularJsFunWithUIApp')
 .factory('contactFactory',function(){
-  
+
   return function(name,phone,email,extScope) {
     var localScope = extScope || { radioModel:'all' }
     var contactTemplate = {
       _name: name || 'Not Setted',
       _phone: phone || '',
       _email: email || '',
-      
+
     };
     Object.defineProperties(contactTemplate,{
       all: {
         get: function(){ return this._name; }
       },
       name: {
-        get: function(){ 
+        get: function(){
           return this._name; },
         set: function(value){ this._name = value; }
       },
@@ -37,4 +37,7 @@ angular.module('AngularJsFunWithUIApp',[])
     });
     return contactTemplate;
   };
+})
+.factory('version',function(){
+  return "0.0.1";
 });

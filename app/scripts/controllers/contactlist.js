@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('AngularJsFunWithUIApp')
-  .controller('ContactlistCtrl', ['$scope','contactFactory',function($scope,$contactFactory) {
+  .controller('ContactListCtrl', ['$scope','contactFactory',function($scope,$contactFactory) {
     $scope.radioModel = 'all';
     $scope.searchText = '';
     $scope.contacts = [

@@ -1,0 +1,40 @@
+<div class="view">
+  <header>
+    <h2>Contact List Example</h2>
+    <div class="navbar-search pull-right">
+
+      <input type="text" class="span2 search-query" ng-model="searchText" placeholder="Search" typeahead="contact.typeahead for contact in contacts | sieve:radioModel:$viewValue" >
+      <div class="btn-group">
+        <button type="button" class="btn btn-info" ng-model="radioModel" btn-radio="'all'">All</button>
+        <button type="button" class="btn btn-info" ng-model="radioModel" btn-radio="'name'">Name</button>
+        <button type="button" class="btn btn-info" ng-model="radioModel" btn-radio="'phone'">Phone</button>
+        <button type="button" class="btn btn-info" ng-model="radioModel" btn-radio="'email'">Email</button>
+      </div>
+
+    </div>
+  </header>
+  <section>
+    <table class="table table-bordered">
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>email</th>
+      </tr>
+      <tr ng-repeat="contact in contacts | sieve:radioModel:searchText ">
+        <td>{{contact.name}}</td>
+        <td>{{contact.phone}}</td>
+        <td>{{contact.email}}</td>
+      </tr>
+    </table>
+  </section>
+  <footer>
+    <a href="#/">Go Back</a>
+  </footer>
+</div>
+<script id="template/typeahead/typeahead-popup.html" type="text/ng-template" >
+  <ul class="typeahead dropdown-menu" ng-style="{display: isOpen()&&'block' || 'none', top: position.top+'px', left: position.left+'px'}">
+    <li ng-repeat="match in matches" ng-class="{active: isActive($index) }" ng-mouseenter="selectActive($index)">
+      <a tabindex="-1" ng-click="selectMatch($index)" ng-bind-html="match.label | typeaheadHighlight:query"></a>
+    </li>
+  </ul>
+</script>

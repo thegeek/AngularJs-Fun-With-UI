@@ -1,9 +1,48 @@
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+<div class="view">
+  <header>
+    <h2>AngularJs Fun With UI Codepen</h2>
+  </header>
+  <section>
+    <article>
+      <p>
+        This is my first fork of AngularJs Template (
+        <a href="http://codepen.io/thegeek/pen/qyeaH" target="_blank">here</a>
+        )
+      </p>
+
+      <p>Each Controller has his own template.</p>
+      <p>In this example there are 3 type of controller:</p>
+      <ul>
+        <li>
+          The main controller that aim to inform the user about the experiment throught a simple html view. Here link in the controller explanation have a popover-ui feature.
+        </li>
+        <li>
+          Todo List Controller (
+          <a href="#/view1" popover="Just a simple Todo List" popover-trigger="mouseenter">here</a>
+          ) show a simple Todo List, you can add, remove and checks Todos. Removal has a confirm modal-ui dialog.
+        </li>
+        <li>
+          Contact List Controller (
+          <a href="#/view2" popover="Just a simple Contact List" popover-trigger="mouseenter">here</a>
+          ) show another simple controller. You can search by all field of the data or just for specific fields (name, phone, email). Search box has typeahead-ui feature, and suggest are shown for type (if you are searching for phone it'll suggest the phone numbers that match with the search value
+        </li>
+      </ul>
+
+      <p>Any suggestion is appreciated</p>
+      <h3>August 19th, 2013</h3>
+      <p> Refactoring the code for upgrading Angular to lastest version (1.2.0rc1) </p>
+    </article>
+  </section>
+  <footer></footer>
+
 </div>
+<script id="template/popover/popover.html" type="text/ng-template">
+  <div class="popover {{placement}}" ng-class="{ in: isOpen(), fade: animation() }">
+    <div class="arrow"></div>
+
+    <div class="popover-inner">
+      <h3 class="popover-title" ng-bind="title" ng-show="title"></h3>
+      <div class="popover-content" ng-bind="content"></div>
+    </div>
+  </div>
+</script>

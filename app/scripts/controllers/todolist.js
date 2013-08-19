@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('AngularJsFunWithUIApp')
-  .controller('TodolistCtrl', ['$scope', '$dialog',
+  .controller('TodoListCtrl', ['$scope', '$dialog',
   function($scope, $dialog) {
     $scope.todos = [{
         desc: 'Wash Dishes',
@@ -19,6 +19,11 @@ angular.module('AngularJsFunWithUIApp')
       todo.done = !todo.done;
     };
     $scope.isDone = function(index) {
+
+      if( index === undefined ) {
+        return '';
+      };
+
       return $scope.todos[index].done ? 'todo-done' : '';
     }
     $scope.confirmRemove = function(index) {
@@ -40,7 +45,7 @@ angular.module('AngularJsFunWithUIApp')
       $scope.todos.splice(index, 1);
     }
     $scope.addTodo = function() {
-      todo = [{
+      var todo = [{
           desc: $scope.newTodo,
           done: false
         }

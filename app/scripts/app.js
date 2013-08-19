@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('AngularJsFunWithUIApp', [])
+angular.module('AngularJsFunWithUIApp', ['ngRoute','ui.bootstrap','ngSanitize'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -12,10 +12,10 @@ angular.module('AngularJsFunWithUIApp', [])
       });
   })
   .config(['$routeProvider','$dialogProvider', function($routeProvider,$dialogProvider) {
-    $dialogProvider.options({backdropClick: false, dialogFade: true});
-    $routeProvider.when('/view1', {templateUrl: 'views/todoList', controller: 'TodoListCtrl'});
-    $routeProvider.when('/view2', {templateUrl: 'views/contactList', controller: 'ContactListCtrl'});
-    $routeProvider.when('/main', {templateUrl: 'views/main', controller: 'MainCtrl'});
+    $dialogProvider.options({backdropClick: false, dialogFade: true, templateUrl: 'views/dialog/message.html'});
+    $routeProvider.when('/view1', {templateUrl: 'views/todoList.html', controller: 'TodoListCtrl'});
+    $routeProvider.when('/view2', {templateUrl: 'views/contactList.html', controller: 'ContactListCtrl'});
+    $routeProvider.when('/main', {templateUrl: 'views/main.html', controller: 'MainCtrl'});
     $routeProvider.otherwise({redirectTo: '/main'});
   }]);
 

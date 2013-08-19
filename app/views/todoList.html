@@ -1,0 +1,51 @@
+<div class="view">
+  <header>
+    <h2>Todo List Example</h2>
+  </header>
+  <section>
+    <div class="control-group">
+
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on">Add</span>
+          <input class="span2" id="inputIcon" type="text" ng-model="newTodo" on-enter="addTodo()"></div>
+      </div>
+      <span>Click Enter to add.</span>
+    </div>
+    <ul class="todos">
+      <li ng-repeat="todo in todos" > 
+        <i class="icon-play-circle" ng-hide="todo.done"></i>
+        <i class="icon-ok" ng-show="todo.done" /></i>
+        <span ng-click="toggleState($index)" ng-class="isDone($index)">
+          {{todo.desc}}
+        </span> 
+        <i class="icon-remove" ng-click="confirmRemove($index)"></i>
+      </li>
+
+    </ul>
+    <span>
+      Click on the task you've done or simply click
+      <i class="icon-remove"></i>
+      to remove.
+    </span>
+  </section>
+  <footer>
+    <a href="#/">Go Back</a>
+  </footer>
+</div>
+<script id="template/dialog/message.html" type="text/ng-template" >
+<div class="modal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <div class="modal-header">
+      <h3>{{ title }}</h3>
+    </div>
+    <div class="modal-body">
+      <p>{{ message }}</p>
+    </div>
+    <div class="modal-footer">
+      <button ng-repeat="btn in buttons" ng-click="close(btn.result)" class="btn" ng-class="btn.cssClass">{{ btn.label }}</button>
+    </div>
+  </div>
+</div>
+</script>
